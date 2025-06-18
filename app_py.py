@@ -9,21 +9,6 @@ with open('model.pkl', 'rb') as f:
 # Page title
 s.title("💼 Salary Prediction App")
 
-# CSS for glowing bordered container
-s.markdown("""
-    <style>
-    .full-box {
-        background-color: #1e1e1e;
-        border: 2px solid #00ff88;
-        border-radius: 15px;
-        box-shadow: 0 0 15px #00ff88;
-        padding: 30px;
-        margin-top: 30px;
-        margin-bottom: 30px;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
 # Start of bordered container
 s.markdown('<div class="full-box">', unsafe_allow_html=True)
 
