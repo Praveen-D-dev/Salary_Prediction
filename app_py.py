@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import streamlit as s
 import pickle
 import numpy as np
@@ -7,24 +6,25 @@ import numpy as np
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
 
-# Title
+# Page title
 s.title("💼 Salary Prediction App")
 
-# 🔲 Add custom CSS for border and background
+# CSS for dark theme glowing border box
 s.markdown("""
     <style>
-    .prediction-box {
-        background-color: #f0f8ff;
-        border: 3px solid #4CAF50;
+    .glow-box {
+        background-color: #1e1e1e;
+        border: 2px solid #00ff88;
         border-radius: 15px;
         padding: 25px;
+        box-shadow: 0 0 20px #00ff88;
         margin-top: 20px;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# 🧩 Add the form inside a styled div
-s.markdown('<div class="prediction-box">', unsafe_allow_html=True)
+# Wrap form content inside styled box
+s.markdown('<div class="glow-box">', unsafe_allow_html=True)
 
 age = s.number_input("👤 Age", min_value=18, max_value=60)
 gender = s.selectbox("🚻 Gender", ("Male", "Female"))
@@ -40,4 +40,4 @@ if s.button("🔮 Predict"):
     prediction = model.predict(data)
     s.success(f"💰 The predicted salary is ₹{prediction[0]:,.2f}")
 
-s.markdown('</div>', unsafe_allow_html=True)  # Close custom div
+s.markdown('</div>', unsafe_allow_html=True)
